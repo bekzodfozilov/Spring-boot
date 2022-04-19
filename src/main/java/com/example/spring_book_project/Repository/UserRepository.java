@@ -102,12 +102,12 @@ public class UserRepository {
             UserDao userDao = new UserDao();
             while (resultSet.next()) {
                 userDao.setSoni(resultSet.getInt("soni"));
-                userDao.setMahsulot_sotilish_narxi(resultSet.getInt("sotilgan_maxsulot_narxlari"));
+                userDao.setSotilgan_maxsulot_narxlari(resultSet.getInt("sotilgan_maxsulot_narxlari"));
             }
             String update = "update magzin set soni = ? , sotilgan_maxsulot_narxlari = ? where mahsulot_nomi = ?";
             PreparedStatement preparedStatement1 = connection.prepareStatement(update);
             preparedStatement1.setInt(1, userDao.getSoni() - soni);
-            preparedStatement1.setInt(2, userDao.getSotilgan_maxsulot_narxlari() + narxi);
+            preparedStatement1.setInt(2, (userDao.getSotilgan_maxsulot_narxlari() + narxi));
             preparedStatement1.setString(3, nomi);
             preparedStatement1.executeUpdate();
             statement.executeUpdate("update m_order set payed = true ");

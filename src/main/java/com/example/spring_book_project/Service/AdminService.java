@@ -21,7 +21,7 @@ public class AdminService {
             AdminDto adminDto = new AdminDto();
             adminDto.setId(adminDao.getId());
             adminDto.setMahsulot_nomi(adminDao.getMahsulot_nomi());
-            adminDto.setMahsulot_sotilsh_narxi(adminDao.getMahsulot_sotilsh_narxi());
+            adminDto.setMahsulot_sotilsh_narxi(adminDao.getMahsulot_sotilish_narxi());
             adminDto.setSoni(adminDao.getSoni());
             adminDto.setSotilgan_maxsulot_narxlari(adminDao.getSotilgan_maxsulot_narxlari());
             adminsDto.add(adminDto);

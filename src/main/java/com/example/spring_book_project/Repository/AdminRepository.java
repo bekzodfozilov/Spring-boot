@@ -24,7 +24,7 @@ public class AdminRepository {
                 AdminDao adminDao = new AdminDao();
                 adminDao.setId(resultSet.getInt(1));
                 adminDao.setMahsulot_nomi(resultSet.getString(2));
-                adminDao.setMahsulot_sotilsh_narxi(resultSet.getInt(3));
+                adminDao.setMahsulot_sotilish_narxi(resultSet.getInt(3));
                 adminDao.setSoni(resultSet.getInt(4));
                 adminDao.setSotilgan_maxsulot_narxlari(resultSet.getInt(5));
                 adminsDaos.add(adminDao);
@@ -41,12 +41,12 @@ public class AdminRepository {
             AdminDao adminDao = new AdminDao();
             adminDao.setMahsulot_nomi(adminDto.getMahsulot_nomi());
             adminDao.setSoni(adminDto.getSoni());
-            adminDao.setMahsulot_sotilsh_narxi(adminDto.getMahsulot_sotilsh_narxi());
+            adminDao.setMahsulot_sotilish_narxi(adminDto.getMahsulot_sotilsh_narxi());
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement("insert into magzin(mahsulot_nomi, soni, mahsulot_sotilish_narxi) values(?,?,?)");
                 preparedStatement.setString(1,adminDao.getMahsulot_nomi());
                 preparedStatement.setInt(2,adminDao.getSoni());
-                preparedStatement.setInt(3,adminDto.getMahsulot_sotilsh_narxi());
+                preparedStatement.setInt(3,adminDao.getMahsulot_sotilish_narxi());
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
