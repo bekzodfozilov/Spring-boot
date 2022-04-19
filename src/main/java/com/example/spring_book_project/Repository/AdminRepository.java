@@ -43,21 +43,22 @@ public class AdminRepository {
             adminDao.setSoni(adminDto.getSoni());
             adminDao.setMahsulot_sotilsh_narxi(adminDto.getMahsulot_sotilsh_narxi());
             try {
-                PreparedStatement preparedStatement = connection.prepareStatement("insert into magzin(mahsulot_nomi, soni) values(?,?)");
+                PreparedStatement preparedStatement = connection.prepareStatement("insert into magzin(mahsulot_nomi, soni, mahsulot_sotilish_narxi) values(?,?,?)");
                 preparedStatement.setString(1,adminDao.getMahsulot_nomi());
                 preparedStatement.setInt(2,adminDao.getSoni());
+                preparedStatement.setInt(3,adminDto.getMahsulot_sotilsh_narxi());
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            try {
-                PreparedStatement preparedStatement = connection.prepareStatement("update magzin set mahsulot_sotilish_narxi = ? where mahsulot_nomi = ?");
-                preparedStatement.setInt(1,adminDao.getMahsulot_sotilsh_narxi());
-                preparedStatement.setString(2,adminDao.getMahsulot_nomi());
-                preparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                PreparedStatement preparedStatement = connection.prepareStatement("update magzin set mahsulot_sotilish_narxi = ? where mahsulot_nomi = ?");
+//                preparedStatement.setInt(1,adminDao.getMahsulot_sotilsh_narxi());
+//                preparedStatement.setString(2,adminDao.getMahsulot_nomi());
+//                preparedStatement.executeUpdate();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }

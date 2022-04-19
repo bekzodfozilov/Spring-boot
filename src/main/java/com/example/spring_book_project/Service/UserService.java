@@ -65,7 +65,7 @@ public class UserService {
             if (orderDto.getNarxi() > Math.abs(puli))
                 return new ResponseDto<>(false, -1, String.format("Sizga " + String.valueOf(orderDto.getNarxi() - Math.abs(puli)) + " ming yetmadi"), "Xatolik");
             if (orderDto.getNarxi() < Math.abs(puli)) {
-                repository.update(nomi, orderDto.getSoni(), Math.abs(puli) - orderDto.getNarxi());
+                repository.update(nomi, orderDto.getSoni(),  orderDto.getNarxi());
                 return new ResponseDto<>(true, 0, String.format("Sizning qaytimingiz %d", puli - orderDto.getNarxi()), "ok");
             }
 

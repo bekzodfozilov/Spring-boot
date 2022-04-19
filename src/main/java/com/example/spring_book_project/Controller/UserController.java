@@ -15,16 +15,19 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    // Bazadan malumotlarni Userga o'qib beradi
 
     @GetMapping("info")
     public ResponseDto<ArrayList<UserDto>> getUsers() {
         return userService.getUsers();
     }
+    // User mahsulotarni zakaz qilish uchun
 
     @PostMapping("sale")
     public ResponseDto<Object> sale(@RequestParam String nomi, @RequestParam Integer soni) {
         return userService.sale(nomi, soni);
     }
+    // Zakaz qilingan mahsulotlarni sotib olish uchun
 
     @PostMapping("order")
     public ResponseDto<Object> order(@RequestParam String nomi, @RequestParam Integer puli) {

@@ -18,12 +18,17 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
+    // Admin bazadagi bor tavarlarni korish uchun
+
     @GetMapping("get")
     private ResponseDto<ArrayList<AdminDto>> get() {
         return adminService.get();
     }
+
+    // Yangi tavarlarni bazaga qoshish uchn
+
     @PostMapping("insert")
-    private ResponseDto<Object> insert(@RequestBody ArrayList<AdminDto> adminsDto){
-     return adminService.insert(adminsDto);
+    private ResponseDto<Object> insert(@RequestBody ArrayList<AdminDto> adminsDto) {
+        return adminService.insert(adminsDto);
     }
 }

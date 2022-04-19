@@ -107,7 +107,7 @@ public class UserRepository {
             String update = "update magzin set soni = ? , sotilgan_maxsulot_narxlari = ? where mahsulot_nomi = ?";
             PreparedStatement preparedStatement1 = connection.prepareStatement(update);
             preparedStatement1.setInt(1, userDao.getSoni() - soni);
-            preparedStatement1.setInt(2, narxi);
+            preparedStatement1.setInt(2, userDao.getSotilgan_maxsulot_narxlari() + narxi);
             preparedStatement1.setString(3, nomi);
             preparedStatement1.executeUpdate();
             statement.executeUpdate("update m_order set payed = true ");
