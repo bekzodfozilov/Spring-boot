@@ -51,14 +51,7 @@ public class AdminRepository {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-//            try {
-//                PreparedStatement preparedStatement = connection.prepareStatement("update magzin set mahsulot_sotilish_narxi = ? where mahsulot_nomi = ?");
-//                preparedStatement.setInt(1,adminDao.getMahsulot_sotilsh_narxi());
-//                preparedStatement.setString(2,adminDao.getMahsulot_nomi());
-//                preparedStatement.executeUpdate();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
+
         }
     }
 }
