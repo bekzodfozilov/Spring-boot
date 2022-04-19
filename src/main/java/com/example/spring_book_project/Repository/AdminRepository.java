@@ -37,21 +37,21 @@ public class AdminRepository {
     }
 
     public void insert(ArrayList<AdminDto> adminsDto) {
-        for (AdminDto adminDto : adminsDto) {
-            AdminDao adminDao = new AdminDao();
-            adminDao.setMahsulot_nomi(adminDto.getMahsulot_nomi());
-            adminDao.setSoni(adminDto.getSoni());
-            adminDao.setMahsulot_sotilish_narxi(adminDto.getMahsulot_sotilsh_narxi());
-            try {
-                PreparedStatement preparedStatement = connection.prepareStatement("insert into magzin(mahsulot_nomi, soni, mahsulot_sotilish_narxi) values(?,?,?)");
-                preparedStatement.setString(1,adminDao.getMahsulot_nomi());
-                preparedStatement.setInt(2,adminDao.getSoni());
-                preparedStatement.setInt(3,adminDao.getMahsulot_sotilish_narxi());
-                preparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-        }
+       for (AdminDto adminDto : adminsDto){
+           AdminDao adminDao = new AdminDao();
+           adminDao.setMahsulot_nomi(adminDto.getMahsulot_nomi());
+           adminDao.setSoni(adminDto.getSoni());
+           adminDao.setMahsulot_sotilish_narxi(adminDto.getMahsulot_sotilish_narxi());
+           try {
+               PreparedStatement preparedStatement = connection.prepareStatement("insert into magzin( mahsulot_nomi, soni, mahsulot_sotilish_narxi)\n" +
+                       "values (?,?,?)");
+               preparedStatement.setString(1,adminDao.getMahsulot_nomi());
+               preparedStatement.setInt(2,adminDao.getSoni());
+               preparedStatement.setInt(3,adminDao.getMahsulot_sotilish_narxi());
+               preparedStatement.executeUpdate();
+           } catch (SQLException e) {
+               e.printStackTrace();
+           }
+       }
     }
 }

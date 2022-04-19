@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class AdminDto {
     public Integer id;
     private String mahsulot_nomi;
-    private Integer mahsulot_sotilsh_narxi;
+    private Integer mahsulot_sotilish_narxi;
     private Integer soni;
     private Integer sotilgan_maxsulot_narxlari;
 }
